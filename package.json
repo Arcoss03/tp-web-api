@@ -1,12 +1,12 @@
 {
   "name": "mini-api-person",
-  "type": "commonjs",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "dev": "nodemon src/index.ts",
+    "start": "node --loader ts-node/esm src/index.ts",
+    "dev": "nodemon --exec 'node --inspect --loader ts-node/esm ./src/index.ts'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
