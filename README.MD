@@ -16,7 +16,8 @@
 ```
 npm install
 ```
-### install the mysql database dump in ```
+### install the mysql database dump in 
+```
 database/tp_web_api.sql
 ```
 
@@ -25,9 +26,6 @@ database/tp_web_api.sql
 DATABASE_URL=mysql://root:root@localhost:8889/web_sign
 MY_UNIQUE_SALT=BlQWa1y5PbbOmxqy68dpXPOlbJV
 ```
-
-
-
 ### run in dev mode
 ```
 npm run dev
