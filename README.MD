@@ -5,11 +5,22 @@
 
 ### This is a simple API that allows admins to manage a list of student, create courses and assign students to courses. Students can also sign up when there assist to a course.
 
-### install dependencies
-```npm install```
-### install the mysql database dump in ```database/tp_web_api.sql```
+### This project is made with:
+- #### NodeJS
+- #### Express
+- #### MySQL
+- #### Prisma
+- #### Typescript
 
-### configure your own .env file, exempl: 
+### install dependencies:
+```
+npm install
+```
+### install the mysql database dump in ```
+database/tp_web_api.sql
+```
+
+### configure your own .env file, exemple: 
 ```
 DATABASE_URL=mysql://root:root@localhost:8889/web_sign
 MY_UNIQUE_SALT=BlQWa1y5PbbOmxqy68dpXPOlbJV
@@ -18,10 +29,16 @@ MY_UNIQUE_SALT=BlQWa1y5PbbOmxqy68dpXPOlbJV
 
 
 ### run in dev mode
-```npm run dev```
+```
+npm run dev
+```
 ### build the project
-```npm run build```
+```
+npm run build
+```
 ### run the server
-```npm start```
+```
+npm start
+```
 
 
