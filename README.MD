@@ -18,7 +18,7 @@ npm install
 ```
 ### install the mysql database dump in 
 ```
-database/tp_web_api.sql
+dumps/tp_web_api.sql
 ```
 
 ### configure your own .env file, exemple: 
