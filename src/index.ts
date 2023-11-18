@@ -1,25 +1,27 @@
+// index.ts
 import express from 'express';
 import bodyParser from 'body-parser';
-import mysql from 'mysql2';
-import dotenv from 'dotenv';
-import adminRouter from './routes/admins';
-import studentRouter from './routes/students';
-import db from './db';
+import adminRouter from './routes/admin';
+// import studentRouter from './routes/student';
+// import { authMiddleware } from './middlewares/authMiddleware';
+import { PrismaClient } from '@prisma/client';
 
-db.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to database');
-}
-);
-dotenv.config();
+const prisma = new PrismaClient();
+
 const app = express();
 app.use(bodyParser.json());
 
+// Utilisez le middleware d'authentification sur les routes que vous souhaitez protéger
+// app.use('/admin', authMiddleware, adminRouter);
+app.use('/admin', adminRouter);
+
+// // Les routes /student ne sont pas protégées par le middleware d'authentification
+// app.use('/student', studentRouter);
+
+//route for say hello world
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
-app.use('/admin', adminRouter);
-app.use('/student', studentRouter);
 
 app.listen(3000, () => {
   console.log('Server is running at http://localhost:3000');
