@@ -22,13 +22,14 @@ npx prisma generate --schema=src/prisma/schema.prisma
 ```
 ### install the mysql database dump in 
 ```
-dumps/tp_web_api.sql
+dumps/dump1.sql
 ```
 
 ### configure your own .env file, exemple: 
 ```
 DATABASE_URL=mysql://root:root@localhost:8889/web_sign
 MY_UNIQUE_SALT=BlQWa1y5PbbOmxqy68dpXPOlbJV
+JWT_SECRET=dsjkgfhseughezugbezvbez
 ```
 ### run in dev mode
 ```
