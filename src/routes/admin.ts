@@ -11,23 +11,29 @@ const studentBoolean = false;
 
 //================ POST ROUTES ===================
 
+//route for create a new student
 router.post('/admin', async (req, res) => {
-    const { email, password } = req.body;
-
+    let { email, password } = req.body;
+    password = await hashPassword(password);
+  
     try {
-        const newUser = await prisma.users.create({
-            data: {
-                email,
-                password,
-                role: adminBoolean,
-            },
-        });
-
-        res.json(newUser);
+      const newUser = await prisma.users.create({
+        data: {
+          email,
+          password,
+          role: adminBoolean,
+        },
+      });
+  
+      res.json(newUser);
     } catch (error) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+        res.status(400).json({ error: 'A user with this email already exists.' });
+      } else {
         res.status(500).json({ error: 'An error occurred while creating the new admin.' });
+      }
     }
-});
+  });
 
 //route for create a new student
 router.post('/student', async (req, res) => {
@@ -69,7 +75,7 @@ router.post('/course', async (req, res) => {
         }
       }
   
-      // Créer le cours
+      // create the course
       const newCourse = await prisma.courses.create({
         data: {
           title,
@@ -77,7 +83,7 @@ router.post('/course', async (req, res) => {
         },
       });
   
-      // Créer les students_courses pour chaque userId
+      // create the students_courses
       const studentsCourses = userIds.map((userId: number) => {
         return prisma.students_course.create({
           data: {
@@ -99,6 +105,58 @@ router.post('/course', async (req, res) => {
     }
   });
 //================ GET ROUTES ===================
+
+//route for get all courses
+router.get('/course', async (req, res) => {
+    try {
+        const courses = await prisma.courses.findMany();
+
+        res.json(courses);
+    } catch (error) {
+        res.status(500).json({ error: 'An error occurred while retrieving courses.' });
+    }
+});
+
+//route for gett all student participation in a course
+router.get('/student-courses/:id', async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const students = await prisma.students_course.findMany({
+        where: {
+          courseId: parseInt(id),
+        },
+        select: {
+          redgisteredAt: true,
+          signedAt: true,
+          user: {
+            select: {
+              id: true,
+              email: true,
+            },
+          },
+        },
+      });
+  
+      const response = students.map(student => ({
+        email: student.user.email,
+        userId: student.user.id,
+        registeredAt: student.redgisteredAt,
+        signedAt: student.signedAt,
+      }));
+  
+      res.json(response);
+    } catch (error) {
+      if (error instanceof Error) {
+        res.status(500).json({ error: error.message });
+      } else {
+        res.status(500).json({ error: 'An unknown error occurred.' });
+      }
+    }
+  });
+
+//route for get all unsigned students
+
 
 //route for get all admins
 router.get('/admin', async (req, res) => {

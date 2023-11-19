@@ -8,7 +8,7 @@ const courseSchema = object().shape({
 
 const UserSchema = object().shape({
     email: string().email('The email is not valid.').required('The email is required.'),
-    password: string().min(8, 'The password must be at least 8 characters long.').required('The password is required.'),
+    password: string().required('The password is required.'),
 });
 
 const students_coursesSchema = (courseId: number) => object().shape({
