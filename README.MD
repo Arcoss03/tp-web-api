@@ -16,6 +16,10 @@
 ```
 npm install
 ```
+### generate prisma schema in your node_modules:
+```
+npx prisma generate --schema=src/prisma/schema.prisma
+```
 ### install the mysql database dump in 
 ```
 dumps/tp_web_api.sql

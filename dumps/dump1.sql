@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 18, 2023 at 04:47 PM
+-- Generation Time: Nov 19, 2023 at 09:57 PM
 -- Server version: 5.7.39
 -- PHP Version: 7.4.33
 
@@ -33,6 +33,17 @@ CREATE TABLE `courses` (
   `date` datetime(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `title`, `date`) VALUES
+(3, 'test', '2022-10-31 09:00:00.594'),
+(4, 'test3', '2022-10-31 09:00:00.594'),
+(5, 'test3', '2022-10-31 09:00:00.594'),
+(6, 'cours de math', '2020-07-30 18:00:00.000'),
+(7, 'cours de math3', '2028-07-30 18:00:00.000');
+
 -- --------------------------------------------------------
 
 --
@@ -45,6 +56,26 @@ CREATE TABLE `students_course` (
   `redgisteredAt` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `signedAt` datetime(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `students_course`
+--
+
+INSERT INTO `students_course` (`userId`, `courseId`, `redgisteredAt`, `signedAt`) VALUES
+(1, 3, '2023-11-18 18:41:30.778', NULL),
+(1, 4, '2023-11-18 18:45:53.333', NULL),
+(1, 5, '2023-11-18 18:58:03.832', NULL),
+(4, 3, '2023-11-18 18:41:30.778', NULL),
+(4, 4, '2023-11-18 18:45:53.333', NULL),
+(4, 5, '2023-11-18 18:58:03.832', NULL),
+(5, 4, '2023-11-18 18:45:53.333', NULL),
+(5, 5, '2023-11-18 18:58:03.832', NULL),
+(5, 6, '2023-11-19 14:35:33.139', NULL),
+(5, 7, '2023-11-19 15:02:10.926', NULL),
+(6, 6, '2023-11-19 14:35:33.139', NULL),
+(6, 7, '2023-11-19 15:02:10.926', NULL),
+(11, 6, '2023-11-19 14:35:33.139', '2023-11-19 14:50:14.603'),
+(11, 7, '2023-11-19 15:02:10.926', NULL);
 
 -- --------------------------------------------------------
 
@@ -68,7 +99,8 @@ INSERT INTO `users` (`id`, `email`, `password`, `role`) VALUES
 (4, 'lala.truc@gmail.fr', '$2b$10$7rLy26hy3/V71veuVXgP5eQsoXP.KLaQW7Rmxzu3/41rs0kUaaH6e', 0),
 (5, 'mach.truc@gmail.fr', '$2b$10$1dp4d3pKtMdcb3w7fjkkNOz1tsWjhLcoI187swFMBZjSsrcxBF/Bm', 0),
 (6, 'mach.truc@free.fr', '$2b$10$meFjDEWUGCuUzwA8mJ9ZheJJNVWULzstewxpUApLY7pAfrgD9.luK', 0),
-(7, 'frin.arthur@gmail.com', 'test', 1);
+(11, 'paul.menard@gmail.com', '$2b$10$bvmzIuU2ODOw9DjGo1Z75uL3mngLdUiQlOGzUbbCQES.bl4CQC0cm', 0),
+(12, 'frin.arthur@gmail.com', '$2b$10$IgbcRxotSpsN9Whz5Wu/feuR9erlJZW7BEvG1dJ0UDyBmCyMSlz1G', 1);
 
 --
 -- Indexes for dumped tables
@@ -102,13 +134,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
