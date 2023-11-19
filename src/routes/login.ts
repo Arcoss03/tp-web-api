@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
         }
 
         // Create a token
-        const role = user.role ? "admin" : "user";
+        const role = user.role ? "admin" : "student";
         const token = jwt.sign({ id: user.id, role: role}, process.env.JWT_SECRET ?? 'default-secret', { expiresIn: '15d' });
         res.status(200).json({ message: 'user connected', token, role: user.role });
     } catch (error) {

@@ -16,5 +16,10 @@ const students_coursesSchema = (courseId: number) => object().shape({
     courseId: number().integer().required('The course ID is required.'),
     });
 
+const SignSchema = object().shape({
+    id: number().integer().required('The id is required.'),
+    date: date().required('The date is required.'),
+});
 
-export { courseSchema , UserSchema, students_coursesSchema};
+
+export { courseSchema , UserSchema, students_coursesSchema, SignSchema};
