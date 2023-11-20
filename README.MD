@@ -45,8 +45,7 @@ npm start
 ```
 
 ## all routes:
-### login route:
-post:
+### login route (post):
 ```
 /login
 ```
@@ -57,11 +56,10 @@ post:
   "password": "password"
 }
 ```
-### you must use the response token as Bearer Token for authentificate (if role: true -> admin; false -> student
+#### you must use the response token as Bearer Token for authentificate (if role: true -> admin; false -> student
 
 ### admins routes:
-#### create a new student:
-post:
+#### create a new student (post):
 ```
 /admin/student
 ```
@@ -73,8 +71,7 @@ post:
 }
 ```
 
-#### create a new admin:
-post:
+#### create a new admin (post):
 ```
 /admin/student
 ```
@@ -85,8 +82,7 @@ post:
   "password": "password"
 }
 ```
-#### create a new course:
-post:
+#### create a new course (post):
 ```
 /admin/course
 ```
@@ -99,8 +95,7 @@ post:
 }
 ```
 
-#### get all courses:
-get:
+#### get all courses (get):
 ```
 /admin/course
 ```
@@ -112,44 +107,37 @@ get:
 /student-courses/:id
 ```
 
-#### get all students:
-get:
+#### get all students (get):
 ```
 /admin/students
 ```
-#### get all admins:
-get:
+#### get all admins (get):
 ```
 /admin/admin
 ```
 
-#### get all users:
-get:
+#### get all users (get):
 ```
 /admin/user
 ```
 
-#### get one user by id
-get:
+#### get one user by id (get):
 ```
 /admin/user/:id
 ```
 
 ### student routes:
-#### route for to sign to a course (id_student in the Bearer token)
-patch:
+#### route for to sign to a course (id_student in the Bearer token) (path):
 ```
 /student/sign/id_course
 ```
 
-#### route for get all courses for one student (id_student in the Bearer token)
-get:
+#### route for get all courses for one student (id_student in the Bearer token) (get):
 ```
 /student/courses
 ```
 
-#### route for get courses not passed for one student (id_student in the Bearer token)
-get:
+#### route for get courses not passed for one student (id_student in the Bearer token) (get):
 ```
 /student/current-courses
 ```
