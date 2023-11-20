@@ -44,4 +44,114 @@ npm run build
 npm start
 ```
 
+## all routes:
+### login route:
+post:
+```
+/login
+```
+- params:
+```json
+{
+  "email": "email.exemple@gmail.com",
+  "password": "password"
+}
+```
+### you must use the response token as Bearer Token for authentificate (if role: true -> admin; false -> student
+
+### admins routes:
+#### create a new student:
+post:
+```
+/admin/student
+```
+- params:
+```json
+{
+  "email": "student.exemple@gmail.com",
+  "password": "password"
+}
+```
+
+#### create a new admin:
+post:
+```
+/admin/student
+```
+- params:
+```json
+{
+  "email": "admin.exemple@gmail.com",
+  "password": "password"
+}
+```
+#### create a new course:
+post:
+```
+/admin/course
+```
+- params:
+```json
+{
+  "title": "course title",
+  "date": "2028-07-30T18:00:00.000Z (dateTime format)"
+  "userIds": [5, 6, 11]
+}
+```
+
+#### get all courses:
+get:
+```
+/admin/course
+```
+
+#### route to get all the participants of a course
+get:
+(id is the courses id)
+```
+/student-courses/:id
+```
+
+#### get all students:
+get:
+```
+/admin/students
+```
+#### get all admins:
+get:
+```
+/admin/admin
+```
+
+#### get all users:
+get:
+```
+/admin/user
+```
+
+#### get one user by id
+get:
+```
+/admin/user/:id
+```
+
+### student routes:
+#### route for to sign to a course (id_student in the Bearer token)
+patch:
+```
+/student/sign/id_course
+```
+
+#### route for get all courses for one student (id_student in the Bearer token)
+get:
+```
+/student/courses
+```
+
+#### route for get courses not passed for one student (id_student in the Bearer token)
+get:
+```
+/student/current-courses
+```
+
 
