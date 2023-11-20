@@ -100,8 +100,7 @@ npm start
 /admin/course
 ```
 
-#### route to get all the participants of a course
-get:
+#### route to get all the participants of a course (get):
 (id is the courses id)
 ```
 /student-courses/:id
