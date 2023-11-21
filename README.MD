@@ -121,7 +121,7 @@ npm start
 #### route to get all the participants of a course (get):
 (id is the courses id)
 ```
-/student-courses/:id
+/admin/student-courses/:id
 ```
 
 #### get all students (get):
