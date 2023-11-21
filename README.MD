@@ -90,7 +90,7 @@ npm start
 ```json
 {
   "title": "course title",
-  "date": "2028-07-30T18:00:00.000Z (dateTime format)"
+  "date": "2028-07-30T18:00:00.000Z (dateTime format)",
   "userIds": [5, 6, 11]
 }
 ```
