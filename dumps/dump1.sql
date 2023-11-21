@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Nov 19, 2023 at 09:57 PM
--- Server version: 5.7.39
--- PHP Version: 7.4.33
+-- Host: localhost:3306
+-- Generation Time: Nov 21, 2023 at 10:22 PM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,7 +42,10 @@ INSERT INTO `courses` (`id`, `title`, `date`) VALUES
 (4, 'test3', '2022-10-31 09:00:00.594'),
 (5, 'test3', '2022-10-31 09:00:00.594'),
 (6, 'cours de math', '2020-07-30 18:00:00.000'),
-(7, 'cours de math3', '2028-07-30 18:00:00.000');
+(7, 'cours de math3', '2028-07-30 18:00:00.000'),
+(8, 'cours de math3', '2028-07-30 18:00:00.000'),
+(9, 'cours de math3', '2028-07-30 18:00:00.000'),
+(10, 'cours test', '2028-07-30 18:00:00.000');
 
 -- --------------------------------------------------------
 
@@ -72,10 +75,19 @@ INSERT INTO `students_course` (`userId`, `courseId`, `redgisteredAt`, `signedAt`
 (5, 5, '2023-11-18 18:58:03.832', NULL),
 (5, 6, '2023-11-19 14:35:33.139', NULL),
 (5, 7, '2023-11-19 15:02:10.926', NULL),
+(5, 8, '2023-11-21 10:25:21.100', NULL),
+(5, 9, '2023-11-21 22:12:08.410', NULL),
+(5, 10, '2023-11-21 22:12:38.155', NULL),
 (6, 6, '2023-11-19 14:35:33.139', NULL),
 (6, 7, '2023-11-19 15:02:10.926', NULL),
+(6, 8, '2023-11-21 10:25:21.100', NULL),
+(6, 9, '2023-11-21 22:12:08.410', NULL),
+(6, 10, '2023-11-21 22:12:38.155', NULL),
 (11, 6, '2023-11-19 14:35:33.139', '2023-11-19 14:50:14.603'),
-(11, 7, '2023-11-19 15:02:10.926', NULL);
+(11, 7, '2023-11-19 15:02:10.926', NULL),
+(11, 8, '2023-11-21 10:25:21.100', '2023-11-21 22:02:35.550'),
+(16, 9, '2023-11-21 22:12:08.410', NULL),
+(16, 10, '2023-11-21 22:12:38.155', NULL);
 
 -- --------------------------------------------------------
 
@@ -100,7 +112,9 @@ INSERT INTO `users` (`id`, `email`, `password`, `role`) VALUES
 (5, 'mach.truc@gmail.fr', '$2b$10$1dp4d3pKtMdcb3w7fjkkNOz1tsWjhLcoI187swFMBZjSsrcxBF/Bm', 0),
 (6, 'mach.truc@free.fr', '$2b$10$meFjDEWUGCuUzwA8mJ9ZheJJNVWULzstewxpUApLY7pAfrgD9.luK', 0),
 (11, 'paul.menard@gmail.com', '$2b$10$bvmzIuU2ODOw9DjGo1Z75uL3mngLdUiQlOGzUbbCQES.bl4CQC0cm', 0),
-(12, 'frin.arthur@gmail.com', '$2b$10$IgbcRxotSpsN9Whz5Wu/feuR9erlJZW7BEvG1dJ0UDyBmCyMSlz1G', 1);
+(12, 'frin.arthur@gmail.com', '$2b$10$IgbcRxotSpsN9Whz5Wu/feuR9erlJZW7BEvG1dJ0UDyBmCyMSlz1G', 1),
+(14, 'admin@admin.com', '$2b$10$AXJeyFz2jXJa9m7nvOs3Ju5lZ5TaLY1B2XcjOvaRCau4/KgM7ujwW', 1),
+(16, 'student@student.com', '$2b$10$jWmq7gorQN6n9Gqyg8zo0.w4vcAIUcSMvdWOWYej7MTaqsMoPASgy', 0);
 
 --
 -- Indexes for dumped tables
@@ -134,13 +148,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

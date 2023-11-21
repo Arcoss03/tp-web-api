@@ -56,7 +56,25 @@ npm start
   "password": "password"
 }
 ```
-#### you must use the response token as Bearer Token for authentificate (if role: true -> admin; false -> student
+#### you must use the response token as Bearer Token for authentificate (if role: true -> admin; false -> student)
+
+#### you can use this admin account and student account whith the db dump:
+
+- admin:
+```json
+{
+  "email": "admin@admin.com",
+  "password": "azerty"
+}
+```
+- student:
+```json
+{
+  "email": "student@student.com",
+  "password": "azerty"
+}
+```
+
 
 ### admins routes:
 #### create a new student (post):
